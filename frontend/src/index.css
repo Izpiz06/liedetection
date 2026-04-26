@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-display bg-neo-bg text-neo-text antialiased;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .dark body, body.dark {
+    @apply bg-neo-dark text-neo-text-dark;
+  }
+}
+
+@layer components {
+  /* Neo-brutalist card */
+  .neo-card {
+    @apply bg-white border-4 border-neo-text p-6 shadow-neo transition-all duration-200;
+    border-radius: 8px;
+  }
+  .dark .neo-card {
+    @apply bg-neo-dark-card border-white/30 shadow-neo-dark;
+    color: #f0f0f0;
+  }
+
+  /* Neo-brutalist button base */
+  .neo-btn {
+    @apply px-6 py-3 font-bold text-neo-text border-4 border-neo-text shadow-neo cursor-pointer 
+           transition-all duration-150 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none
+           hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-hover;
+    border-radius: 6px;
+  }
+  .dark .neo-btn {
+    @apply border-white/40 shadow-neo-dark text-neo-text-dark;
+  }
+
+  .neo-btn-yellow { @apply neo-btn bg-neo-yellow; }
+  .neo-btn-red { @apply neo-btn bg-neo-red text-white; }
+  .neo-btn-blue { @apply neo-btn bg-neo-blue text-white; }
+  .neo-btn-green { @apply neo-btn bg-neo-green text-white; }
+  .neo-btn-purple { @apply neo-btn bg-neo-purple text-white; }
+
+  /* Neo-brutalist input */
+  .neo-input {
+    @apply w-full px-4 py-3 border-4 border-neo-text bg-white font-display text-neo-text
+           focus:outline-none focus:ring-0 focus:border-neo-blue transition-colors;
+    border-radius: 6px;
+  }
+  .dark .neo-input {
+    @apply bg-neo-dark-card border-white/30 text-neo-text-dark focus:border-neo-yellow;
+  }
+
+  /* Neo-brutalist badge */
+  .neo-badge {
+    @apply inline-flex items-center px-3 py-1 font-bold text-sm border-3 border-neo-text;
+    border-radius: 4px;
+  }
+  .dark .neo-badge {
+    @apply border-white/30;
+  }
+
+  /* Toast container */
+  .toast-container {
+    @apply fixed top-4 right-4 z-50 flex flex-col gap-3;
+  }
+
+  /* Sidebar link */
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 font-bold transition-all duration-150 
+           border-3 border-transparent hover:border-neo-text hover:bg-neo-yellow/20 hover:shadow-neo-sm;
+    border-radius: 6px;
+  }
+  .sidebar-link.active {
+    @apply border-neo-text bg-neo-yellow shadow-neo-sm;
+  }
+  .dark .sidebar-link:hover {
+    @apply border-white/30 bg-white/10;
+  }
+  .dark .sidebar-link.active {
+    @apply border-white/30 bg-neo-purple/30;
+  }
+
+  /* Scrollbar neo style */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { 
+    @apply bg-neo-text/20; 
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-neo-text/40; }
+}
