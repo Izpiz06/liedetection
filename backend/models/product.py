@@ -10,6 +10,7 @@ class Product(db.Model):
     category = db.Column(db.String(100), nullable=False)
     brand = db.Column(db.String(100), nullable=True)
     description = db.Column(db.Text, nullable=True)
+    product_link = db.Column(db.String(500), nullable=True)
     launch_date = db.Column(db.Date, nullable=True)
     price = db.Column(db.Numeric(10, 2), nullable=True)
     overall_trust_score = db.Column(db.Numeric(5, 2), default=50.00)
@@ -27,6 +28,7 @@ class Product(db.Model):
             'category': self.category,
             'brand': self.brand,
             'description': self.description,
+            'product_link': self.product_link,
             'launch_date': self.launch_date.isoformat() if self.launch_date else None,
             'price': float(self.price) if self.price else None,
             'overall_trust_score': float(self.overall_trust_score or 0),

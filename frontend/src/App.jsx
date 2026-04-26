@@ -10,6 +10,7 @@ import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
+import AddProductPage from './pages/AddProductPage';
 import ReviewSubmitPage from './pages/ReviewSubmitPage';
 import ReviewDetailPage from './pages/ReviewDetailPage';
 import ProfilePage from './pages/ProfilePage';
@@ -35,6 +36,7 @@ export default function App() {
           <Route element={<MainLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/products" element={<ProductsPage />} />
+            <Route path="/products/add" element={<AddProductPage />} />
             <Route path="/products/:id" element={<ProductDetailPage />} />
             <Route path="/review/submit" element={<ReviewSubmitPage />} />
             <Route path="/review/:id" element={<ReviewDetailPage />} />

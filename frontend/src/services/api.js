@@ -40,6 +40,7 @@ export const productsAPI = {
   getAll: (params) => api.get('/products', { params }),
   getById: (id) => api.get(`/products/${id}`),
   getReviews: (id, params) => api.get(`/products/${id}/reviews`, { params }),
+  create: (data) => api.post('/products', data),
 };
 
 // Reviews API

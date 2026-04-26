@@ -1,13 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard, Package, PenSquare, BarChart3, User,
-  ShieldAlert, X
+  ShieldAlert, X, PlusCircle
 } from 'lucide-react';
 import useStore from '../store/useStore';
 
 const links = [
   { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/products', icon: Package, label: 'Products' },
+  { to: '/products/add', icon: PlusCircle, label: 'Add Product' },
   { to: '/review/submit', icon: PenSquare, label: 'Write Review' },
   { to: '/analytics', icon: BarChart3, label: 'Analytics' },
   { to: '/profile', icon: User, label: 'Profile' },

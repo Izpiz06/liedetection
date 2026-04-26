@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { productsAPI } from '../services/api';
 import ProductCard from '../components/ProductCard';
 import SearchBar from '../components/SearchBar';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { PlusCircle } from 'lucide-react';
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
@@ -10,6 +12,7 @@ export default function ProductsPage() {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('');
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -24,9 +27,18 @@ export default function ProductsPage() {
 
   return (
     <div className="space-y-6 animate-slide-up">
-      <div>
-        <h1 className="text-3xl font-black">Product Explorer</h1>
-        <p className="text-sm opacity-60 font-bold">Browse products and their trust scores</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-black">Product Explorer</h1>
+          <p className="text-sm opacity-60 font-bold">Browse products and their trust scores</p>
+        </div>
+        <button
+          onClick={() => navigate('/products/add')}
+          className="neo-btn-purple flex items-center gap-2 text-sm"
+        >
+          <PlusCircle size={18} />
+          Add Product
+        </button>
       </div>
 
       <SearchBar

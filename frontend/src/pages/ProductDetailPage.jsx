@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, PenSquare, Star } from 'lucide-react';
+import { ArrowLeft, PenSquare, Star, ExternalLink } from 'lucide-react';
 import { productsAPI } from '../services/api';
 import TrustScoreMeter from '../components/TrustScoreMeter';
 import ReviewCard from '../components/ReviewCard';
@@ -51,6 +51,17 @@ export default function ProductDetailPage() {
             <h1 className="text-3xl font-black mb-1">{product.product_name}</h1>
             <p className="font-bold opacity-60 mb-2">{product.brand}</p>
             {product.description && <p className="text-sm opacity-50 mb-3">{product.description}</p>}
+            {product.product_link && (
+              <a
+                href={product.product_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-bold text-neo-blue hover:underline mb-3"
+              >
+                <ExternalLink size={14} />
+                View Product Page
+              </a>
+            )}
             <div className="flex flex-wrap gap-3 text-sm font-bold">
               {product.price && (
                 <span className="neo-badge bg-neo-green text-white">

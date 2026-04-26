@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { ShieldCheck, MessageSquare, AlertTriangle } from 'lucide-react';
+import { ShieldCheck, MessageSquare, AlertTriangle, ExternalLink } from 'lucide-react';
 
 export default function ProductCard({ product }) {
   const navigate = useNavigate();
@@ -21,6 +21,12 @@ export default function ProductCard({ product }) {
         <div className="flex-1">
           <h3 className="font-black text-lg leading-tight">{product.product_name}</h3>
           <p className="text-sm font-bold opacity-60">{product.brand} · {product.category}</p>
+          {product.product_link && (
+            <p className="text-xs text-neo-blue font-bold flex items-center gap-1 mt-1 truncate">
+              <ExternalLink size={11} />
+              {product.product_link.replace(/^https?:\/\//, '').substring(0, 35)}...
+            </p>
+          )}
         </div>
         <span className="neo-badge bg-neo-blue text-white text-xs">
           {product.price ? `₹${product.price.toLocaleString()}` : 'N/A'}
